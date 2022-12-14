@@ -7,6 +7,10 @@
 html {
     font-size: 62.5%;
 }
+html,
+body {
+    scroll-behavior: smooth;
+}
 body {
     font-size: 1.6rem;
     font-family: Poppins;
@@ -42,16 +46,26 @@ a {
     overflow: hidden;
 }
 /* header */
-.header {
+
+.hero-wrap {
     position: relative;
     background: #e6f0ff;
-    height: 100vh;
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
+.fixed-header {
+    background: #e6f0ff;
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 38px;
+    padding: 12px 0;
 }
 .navbar ul {
     display: flex;
@@ -79,14 +93,10 @@ a {
     margin-left: 18px;
     border-radius: 8px;
 }
-
-.hero {
-    margin-top: 130px;
-}
-.hero .info {
+.hero-wrap .info {
     width: 51%;
 }
-.hero .info .sub-title {
+.hero-wrap .info .sub-title {
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 1.5;
@@ -94,14 +104,14 @@ a {
     color: #687690;
 }
 
-.hero .info .title {
+.hero-wrap .info .title {
     margin-top: 8px;
     font-weight: 700;
     font-size: 6.2rem;
     line-height: 1.19;
     color: #000336;
 }
-.hero .info .desc {
+.hero-wrap .info .desc {
     margin-top: 30px;
     font-weight: 400;
     font-size: 1.8rem;
@@ -543,13 +553,16 @@ a {
     justify-content: center;
     width: 28px;
     height: 28px;
+    border-radius: 3px;
+    background: #f9f9f9;
 }
 
 .footer .social-link:hover {
-    background: #000;
-    overflow: hidden;
+    background: #ebebeb;
 }
-
+.footer .social-link + .social-link {
+    margin-left: 16px;
+}
 .footer .row-bottom {
     margin-top: 81px;
     display: flex;
